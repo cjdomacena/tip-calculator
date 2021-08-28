@@ -1,4 +1,293 @@
-html
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+
+$primary_bg: #C5E4E7;
+$very_dark_cyan: hsl(183, 100%, 15%);
+$dark_grayish_cyan: hsl(186, 14%, 43%);
+$light_gray_cyan: hsl(185, 41%, 84%);
+$light_grayish_cyan: hsl(189, 41%, 97%);
+$white: hsl(0, 0%, 100%);
+$strong_cyan: hsl(172, 67%, 45%);
+
+@mixin form-title {
+	font-size: .6rem;
+	color: $dark_grayish_cyan;
+	font-weight: 700;
+}
+
+html {
+	background-color: $primary_bg;
+	font-size: 24px;
+	font-family: 'Space Mono', monospace;
+}
+
+.main-container {
+	max-width: 1440px;
+	margin: 0 auto;
+	height: 80vh;
+	display: grid;
+	place-items: center;
+
+	.logo-container {
+		place-self: end center;
+	}
+
+	h1 {
+		text-align: center;
+		letter-spacing: 10px;
+		font-size: 1rem;
+		color: $very_dark_cyan;
+	}
+}
+
+.calculator-container {
+	height: auto;
+	background-color: $white;
+	max-width: 950px;
+	border-radius: 1rem;
+
+	.calculator {
+		margin: 1.5rem;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr;
+		gap: 2rem;
+
+		h2 {
+			@include form-title();
+		}
+
+
+		.form-inputs {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			background-color: $light_grayish_cyan;
+			padding: .3rem .5rem;
+			border-radius: 6px;
+		}
+
+	}
+}
+
+// TIps
+.tip-container {
+	padding: 1rem 0;
+
+	.tip-buttons {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-rows: 1fr 1fr;
+		gap: 16px;
+		button {
+			background-color: $very_dark_cyan;
+			outline: none;
+			border: none;
+			border-radius: 6px;
+			padding: .3rem .5rem;
+			font-family: inherit;
+			color: white;
+			font-size: 1rem;
+			font-weight: 900;
+	
+		}
+	
+		button:hover {
+			background-color: $strong_cyan;
+			color: $very_dark_cyan;
+		}
+		
+		.is_active
+		{
+			background-color: $strong_cyan;
+		}
+	}
+
+.custom
 {
-	background-color: red;
+	padding: .3rem 0;
+	background-color: $light_grayish_cyan;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+	
+
+	input {
+
+		text-align: right;
+		margin: 0;
+		width: 80%;
+		margin: 0 auto;
+	}
+
+	::placeholder {
+		text-align: center;
+		color: $dark_grayish_cyan;
+	}
+	h2 
+	{
+		padding-bottom: .2rem;
+	}
+
+	
+}
+
+
+.total-container
+{
+	background-color: $very_dark_cyan;
+	border-radius: 12px;
+}
+
+
+
+// Global input styling
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+	-moz-appearance: textfield;
+}
+
+input {
+	border: none;
+	background-color: transparent;
+	width: 100%;
+	text-align: right;
+	outline: none;
+	font-family: inherit;
+	font-size: 1rem;
+	font-weight: 700;
+	color: $very_dark_cyan;
+	padding-right: .2rem;
+}
+
+
+::placeholder {
+	/* Chrome, Firefox, Opera, Safari 10.1+ */
+	color: $very_dark_cyan;
+	;
+	opacity: 1;
+	/* Firefox */
+}
+
+:-ms-input-placeholder {
+	/* Internet Explorer 10-11 */
+	color: $very_dark_cyan;
+	;
+}
+
+::-ms-input-placeholder {
+	/* Microsoft Edge */
+	color: $very_dark_cyan;
+	;
+}
+
+.form-title {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-bottom: .2rem;
+}
+
+.error {
+	font-size: .6rem;
+	color: #FF4C39;
+	font-weight: 700;
+	display: none;
+}
+
+.form-error {
+
+	border: 2px solid #FF4C39;
+
+}
+
+.form-active {
+	border: 2px solid $strong_cyan;
+}
+
+
+
+.total-container
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	.total-contents
+	{
+		padding: 1.2rem 1.7rem 0rem 1.7rem;
+	}
+
+	.amount	
+	{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.amount-text
+	{
+		h3
+		{
+			font-size: .7rem;
+			color: $light_grayish_cyan;
+			font-weight: 400;
+			line-height: 0;
+		}
+	}
+	p
+	{
+		padding: 0;
+		margin: 0;
+		line-height: .5rem;
+		font-size: .6rem;
+		color: $dark_grayish_cyan;
+		font-weight: 700;
+	}
+
+	.amount-total
+	{
+		h2 
+		{
+			font-size: 1.8rem;
+			color: $strong_cyan;
+			margin: 0;
+			padding: .5rem;
+		}
+	}
+
+	.button-reset
+	{
+		display: grid;
+		place-items: center;
+		button
+		{
+			width: 80%;
+			margin: 0 auto;
+			background-color: $strong_cyan;
+			outline: none;
+			border: none;
+			border-radius: 6px;
+			font-family: inherit;
+			font-size: 1rem;
+			padding: .2rem 0;
+			text-transform: uppercase;
+			color: $very_dark_cyan;
+			font-weight: 700;
+			&:hover
+			{
+				background-color: $light_gray_cyan;
+			}
+		}
+		padding-bottom: 1.2rem;
+
+	}
+
 }

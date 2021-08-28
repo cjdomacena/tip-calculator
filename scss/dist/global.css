@@ -1,3 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
 html {
-  background-color: red;
+  background-color: #C5E4E7;
+  font-size: 24px;
+  font-family: "Space Mono", monospace;
+}
+
+.main-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  height: auto;
+}
+.main-container h1 {
+  text-align: center;
+  letter-spacing: 5px;
 }
