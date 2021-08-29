@@ -60,7 +60,6 @@ numPeople.addEventListener("focusout", () => {
 
 tip.forEach((item) => {
 
-	// I just saw a version with ternary operator. This is for my own clarity.
 	if (document.querySelector('.is_active')) {
 		document.querySelector('.is_active').classList.toggle('is_active');
 	}
@@ -70,7 +69,6 @@ tip.forEach((item) => {
 		e.currentTarget.classList.toggle("is_active");
 
 		tipPercent = (+parseInt(e.currentTarget.textContent)) / 100;
-		console.log(tipPercent);
 		displayData(bill, tipPercent, numPerson);
 	})
 
@@ -102,6 +100,4 @@ function displayData(bill, tipAmount, numPerson) {
 
 		tipTotal.textContent = tipPerPerson;
 		total.textContent = parseFloat(perPerson).toFixed(2);
-	}
-	console.log("yes");
-}
+	}}
