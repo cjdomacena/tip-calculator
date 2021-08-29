@@ -13,43 +13,16 @@ let numPerson;
 let bill;
 
 
-// const custom = document.getElementById("custom-tip")
+billAmount.addEventListener("input", () => {
 
-// custom.addEventListener("focusin", () =>
-// {
-
-// 		custom.placeholder = "";
-	
-
-// })
-
-// custom.addEventListener("focusout", () =>
-// {
-	
-	
-// 		custom.placeholder = "Custom";
-	
-// })
-
-
-billAmount.addEventListener("input", ()=>
-{
-
-	if(billAmount.value <= 0 )
-	{
+	if (billAmount.value <= 0) {
 		document.querySelector("#bill-input").classList.add("form-error");
 	}
-	else 
-	{
-		document.querySelector("#bill-input").classList.add("form-active");		document.querySelector("#bill-input").classList.remove("form-error");
+	else {
+		document.querySelector("#bill-input").classList.add("form-active"); document.querySelector("#bill-input").classList.remove("form-error");
 		bill = billAmount.value;
 		displayData(bill, tipPercent, numPerson);
 	}
-	
-	billAmount.addEventListener("focusout", () =>
-	{
-		document.querySelector("#bill-input").classList.remove("form-active");
-	})
 
 })
 
@@ -59,48 +32,44 @@ numPeople.addEventListener('input', () => {
 	if (!numPeople.value) {
 		total.textContent = "0.00"
 	}
-
-	if(numPeople.value == 0)
-	{
-		document.querySelector(".error-people").style.display = 'block';
-		document.querySelector(".people-input").classList.add("form-error");
+	else {
+		if (numPeople.value == 0) {
+			document.querySelector(".error-people").style.display = 'block';
+			document.querySelector(".people-input").classList.add("form-error");
+		}
+		else {
+			document.querySelector(".error-people").style.display = 'none';
+			document.querySelector(".people-input").classList.remove("form-error");
+			document.querySelector(".people-input").classList.add('form-active');
+			numPerson = numPeople.value;
+			displayData(bill, tipPercent, numPerson);
+		}
 	}
-	else 
-	{
-		document.querySelector(".error-people").style.display = 'none';
-		document.querySelector(".people-input").classList.remove("form-error");
-		document.querySelector(".people-input").classList.add('form-active');
-		numPerson = numPeople.value;
-		displayData(bill, tipPercent, numPerson);
-	}
 
 
+})
 
-numPeople.addEventListener("focusout", () =>
-{
+billAmount.addEventListener("focusout", () => {
+	document.querySelector("#bill-input").classList.remove("form-active");
+})
+
+numPeople.addEventListener("focusout", () => {
 	document.querySelector(".people-input").classList.remove("form-active");
 })
 
 
-
-	
-})
-
-
-
-
 tip.forEach((item) => {
 
-		// I just saw a version with ternary operator. This is for my own clarity.
+	// I just saw a version with ternary operator. This is for my own clarity.
 	if (document.querySelector('.is_active')) {
 		document.querySelector('.is_active').classList.toggle('is_active');
 	}
 
 	item.addEventListener("click", (e) => {
-	
+
 		e.currentTarget.classList.toggle("is_active");
-		
-		tipPercent = (+parseInt(e.currentTarget.textContent) )/ 100;
+
+		tipPercent = (+parseInt(e.currentTarget.textContent)) / 100;
 		console.log(tipPercent);
 		displayData(bill, tipPercent, numPerson);
 	})
@@ -114,22 +83,20 @@ customTip.addEventListener("input", () => {
 		document.querySelector('.is_active').classList.toggle('is_active');
 	}
 	tipPercent = customTip.value / 100;
-	
+
 	displayData(bill, tipPercent, numPerson);
 })
 
 
 
-function displayData(bill, tipAmount,numPerson)
-{
-	if(bill && tipAmount && numPerson)
-	{
+function displayData(bill, tipAmount, numPerson) {
+	if (bill && tipAmount && numPerson) {
 
 		let billTotal = parseFloat(bill) + (tipAmount * bill);
-		let  perPerson = billTotal / numPerson;
+		let perPerson = billTotal / numPerson;
 		perPerson = parseFloat(perPerson).toFixed(2);
 		let tipPerPerson = parseFloat((tipAmount * bill) / numPerson).toFixed(2);
-		
+
 		tipTotal.textContent = tipPerPerson;
 		total.textContent = parseFloat(perPerson).toFixed(2);
 
@@ -138,18 +105,3 @@ function displayData(bill, tipAmount,numPerson)
 	}
 	console.log("yes");
 }
-
-
-
-
-// todo:
-/*
- * Calculate tip amount
- * Calculate total amount per person
- *  Should check if three values is not empty
- *  
- *  
- * 
- * 
- * 
-*/ 
