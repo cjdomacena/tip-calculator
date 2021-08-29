@@ -30,8 +30,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Github Repo](https://github.com/cjdomacena/tip-calculator)
+- Live Site URL: [GH page](https://cjdomacena.github.io/tip-calculator/)
 
 ## My process
 
@@ -50,7 +50,6 @@ Users should be able to:
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
 - Frontend Mentor - [@cjdomacena](https://www.frontendmentor.io/profile/cjdomacena)
 - Twitter - [@cjdomacena2](https://www.twitter.com/cjdomacena2)
 
