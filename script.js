@@ -7,10 +7,38 @@ const tipTotal = document.querySelector('#tip-amount');
 const total = document.querySelector('#total');
 const tip = document.querySelectorAll('.tip-percent');
 
+// Reset button
+const reset = document.querySelector("#reset");
+
+
 
 let tipPercent;
 let numPerson;
 let bill;
+
+
+
+reset.addEventListener("click", () =>
+{
+	billAmount.value = 0;
+	numPeople.value = 0;
+	tipTotal.value = 0;
+	tipTotal.textContent = "0.00"
+	total.textContent = "0.00"
+	customTip.value = "";
+
+
+	if(document.querySelector(".is_active"))
+	{
+		document.querySelector(".is_active").classList.remove("is_active");
+	}
+
+	tipPercent = 0;
+	numPerson = 0;
+	bill = 0;
+})
+
+
 
 
 billAmount.addEventListener("input", () => {
@@ -58,6 +86,8 @@ numPeople.addEventListener("focusout", () => {
 })
 
 
+
+
 tip.forEach((item) => {
 
 	if (document.querySelector('.is_active')) {
@@ -71,9 +101,6 @@ tip.forEach((item) => {
 		tipPercent = (+parseInt(e.currentTarget.textContent)) / 100;
 		displayData(bill, tipPercent, numPerson);
 	})
-
-
-
 })
 
 customTip.addEventListener("input", () => {
@@ -101,3 +128,5 @@ function displayData(bill, tipAmount, numPerson) {
 		tipTotal.textContent = tipPerPerson;
 		total.textContent = parseFloat(perPerson).toFixed(2);
 	}}
+
+

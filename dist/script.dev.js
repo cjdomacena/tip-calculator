@@ -6,10 +6,28 @@ var customTip = document.querySelector('#custom-tip'); // Display
 
 var tipTotal = document.querySelector('#tip-amount');
 var total = document.querySelector('#total');
-var tip = document.querySelectorAll('.tip-percent');
+var tip = document.querySelectorAll('.tip-percent'); // Reset button
+
+var reset = document.querySelector("#reset");
 var tipPercent;
 var numPerson;
 var bill;
+reset.addEventListener("click", function () {
+  billAmount.value = 0;
+  numPeople.value = 0;
+  tipTotal.value = 0;
+  tipTotal.textContent = "0.00";
+  total.textContent = "0.00";
+  customTip.value = "";
+
+  if (document.querySelector(".is_active")) {
+    document.querySelector(".is_active").classList.remove("is_active");
+  }
+
+  tipPercent = 0;
+  numPerson = 0;
+  bill = 0;
+});
 billAmount.addEventListener("input", function () {
   if (billAmount.value <= 0) {
     document.querySelector("#bill-input").classList.add("form-error");
