@@ -197,11 +197,12 @@ input {
 	padding-bottom: .2rem;
 }
 
-.error {
+.error, .error-people {
 	font-size: .6rem;
 	color: #FF4C39;
 	font-weight: 700;
 	display: none;
+
 }
 
 .form-error {
@@ -212,6 +213,11 @@ input {
 
 .form-active {
 	border: 2px solid $strong_cyan;
+}
+
+.form-error 
+{
+	border: 2px solid #FF4C39;
 }
 
 

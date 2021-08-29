@@ -13,22 +13,44 @@ let numPerson;
 let bill;
 
 
-const custom = document.getElementById("custom-tip")
+// const custom = document.getElementById("custom-tip")
 
-custom.addEventListener("focusin", () =>
+// custom.addEventListener("focusin", () =>
+// {
+
+// 		custom.placeholder = "";
+	
+
+// })
+
+// custom.addEventListener("focusout", () =>
+// {
+	
+	
+// 		custom.placeholder = "Custom";
+	
+// })
+
+
+billAmount.addEventListener("input", ()=>
 {
 
-		custom.placeholder = "";
+	if(billAmount.value <= 0 )
+	{
+		document.querySelector("#bill-input").classList.add("form-error");
+	}
+	else 
+	{
+		document.querySelector("#bill-input").classList.add("form-active");		document.querySelector("#bill-input").classList.remove("form-error");
+		bill = billAmount.value;
+		displayData(bill, tipPercent, numPerson);
+	}
 	
+	billAmount.addEventListener("focusout", () =>
+	{
+		document.querySelector("#bill-input").classList.remove("form-active");
+	})
 
-})
-
-custom.addEventListener("focusout", () =>
-{
-	
-	
-		custom.placeholder = "Custom";
-	
 })
 
 
@@ -37,8 +59,31 @@ numPeople.addEventListener('input', () => {
 	if (!numPeople.value) {
 		total.textContent = "0.00"
 	}
-	numPerson = numPeople.value;
-	displayData(bill, tipPercent, numPerson);
+
+	if(numPeople.value == 0)
+	{
+		document.querySelector(".error-people").style.display = 'block';
+		document.querySelector(".people-input").classList.add("form-error");
+	}
+	else 
+	{
+		document.querySelector(".error-people").style.display = 'none';
+		document.querySelector(".people-input").classList.remove("form-error");
+		document.querySelector(".people-input").classList.add('form-active');
+		numPerson = numPeople.value;
+		displayData(bill, tipPercent, numPerson);
+	}
+
+
+
+numPeople.addEventListener("focusout", () =>
+{
+	document.querySelector(".people-input").classList.remove("form-active");
+})
+
+
+
+	
 })
 
 
@@ -87,8 +132,11 @@ function displayData(bill, tipAmount,numPerson)
 		
 		tipTotal.textContent = tipPerPerson;
 		total.textContent = parseFloat(perPerson).toFixed(2);
-		
+
+		tipTotal.textContent = tipPerPerson;
+		total.textContent = parseFloat(perPerson).toFixed(2);
 	}
+	console.log("yes");
 }
 
 
