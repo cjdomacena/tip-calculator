@@ -9,6 +9,7 @@ This is a solution to the [Tip calculator app challenge on Frontend Mentor](http
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
+  - [Continued Development](#continued-developmet)
 - [Author](#author)
 
 
@@ -42,6 +43,8 @@ Users should be able to:
 - npm
 - javascript
 
+### Continued Development
+- Responsive Design in-progress.
 
 ## Author
 
